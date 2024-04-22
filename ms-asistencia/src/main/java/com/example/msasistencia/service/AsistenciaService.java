@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface AsistenciaService {
     public List<Asistencia> listar();
     public Asistencia guardar(Asistencia asistencia);
-    public Asistencia actualizar(Asistencia asistencia);
-    public Optional<Asistencia> listarPorId(Integer id);
-    public void eliminarPorId(Integer id);
+    public Asistencia buscarPorId(Asistencia asistencia);
+    public Optional<Asistencia> editar(Integer id);
+    public void eliminar(Integer id);
 }

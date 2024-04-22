@@ -25,17 +25,17 @@ public class AsistenciaServiceImpl implements AsistenciaService {
     }
 
     @Override
-    public Asistencia actualizar(Asistencia asistencia) {
+    public Asistencia buscarPorId(Asistencia asistencia) {
         return asistenciaRepository.save(asistencia);
     }
 
     @Override
-    public Optional<Asistencia> listarPorId(Integer id) {
+    public Optional<Asistencia> editar(Integer id) {
         return asistenciaRepository.findById(id);
     }
 
     @Override
-    public void eliminarPorId(Integer id) {
+    public void eliminar(Integer id) {
         asistenciaRepository.deleteById(id);
     }
 }

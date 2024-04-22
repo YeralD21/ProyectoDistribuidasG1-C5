@@ -24,17 +24,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario actualizar(Usuario usuario) {
+    public Usuario buscarPorId(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
     @Override
-    public Optional<Usuario> listarPorId(Integer id) {
+    public Optional<Usuario> editar(Integer id) {
         return usuarioRepository.findById(id);
     }
 
     @Override
-    public void eliminarPorId(Integer id) {
+    public void eliminar(Integer id) {
         usuarioRepository.deleteById(id);
     }
 }
