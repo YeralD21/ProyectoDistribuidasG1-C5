@@ -13,31 +13,28 @@ import java.util.List;
 public class AsistenciaController {
     @Autowired
     private AsistenciaService asistenciaService;
-    @GetMapping
-    public ResponseEntity<List<Asistencia>> listar(){
-        return ResponseEntity.ok(asistenciaService.listar());
+
+
+    @GetMapping()
+    public ResponseEntity<List<Asistencia>> listar() {
+        return ResponseEntity.ok().body(asistenciaService.listar());
     }
-
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Asistencia> guardar(@RequestBody Asistencia asistencia){
-        return  ResponseEntity.ok(asistenciaService.guardar(asistencia));
-
+        return ResponseEntity.ok(asistenciaService.guardar(asistencia));
+    }
+    @PutMapping()
+    public ResponseEntity<Asistencia> buscarPorId(@RequestBody Asistencia asistencia){
+        return ResponseEntity.ok(asistenciaService.buscarPorId(asistencia));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Asistencia> buscarPorId(@PathVariable(required = true) Integer id){
-        return  ResponseEntity.ok(asistenciaService.buscarPorId(id));
-
+    public ResponseEntity<Asistencia> editar(@PathVariable(required = true) Integer id){
+        return ResponseEntity.ok().body(asistenciaService.editar(id).get());
     }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Asistencia> editar(@PathVariable(required = true)Integer id,@RequestBody Asistencia asistencia){
-        return ResponseEntity.ok(asistenciaService.editar(asistencia));
-    }
-
     @DeleteMapping("/{id}")
-    public String eliminar(@PathVariable(required = true) Integer id){
+    public String deleteById(@PathVariable(required = true) Integer id){
         asistenciaService.eliminar(id);
         return "Eliminacion Correcta";
-
     }
 }
+
