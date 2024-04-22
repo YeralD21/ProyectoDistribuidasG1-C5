@@ -1,5 +1,5 @@
 server:
-  port: 8021
+  port: 8031
 springdoc:
   api-docs:
     enabled: true
