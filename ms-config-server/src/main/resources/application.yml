@@ -11,3 +11,8 @@ spring:
           uri: https://github.com/YeralD21/ProyectoDistribuidasG1-C5.git # ruta del repositorio git
           searchPaths: config-data
           default-label: main
+
+  security:
+    user:
+      name: root
+      password: 123456
