@@ -18,7 +18,7 @@ public class MsClientegymApplication {
 		return new OpenAPI().info(new Info()
 				.title("OPEN API MICROSERVICIO CLIENTE")
 				.version("0.0.1")
-				.description("servicios web CLIENTE")
+				.description("servicios web Cliente")
 				.termsOfService("http:// swagger.io/terms")
 				.license(new License().name("Apache 2.0").url("http://springdoc.org"))
 		);
