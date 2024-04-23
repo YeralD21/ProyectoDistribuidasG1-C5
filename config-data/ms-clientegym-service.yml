@@ -17,11 +17,17 @@ spring:
     username: root
     password:
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8890b18978f21687df35fb0013976af85dad3f2
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8091/eureka
   instance:
     hostname: localhost
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8890b18978f21687df35fb0013976af85dad3f2

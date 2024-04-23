@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping()
+=======
+@RequestMapping("/clientegym")
+>>>>>>> b8890b18978f21687df35fb0013976af85dad3f2
 public class ClienteGymController {
     @Autowired
     private ClienteGymService clienteGymService; // Utiliza ClienteService en lugar de CategoriaService
