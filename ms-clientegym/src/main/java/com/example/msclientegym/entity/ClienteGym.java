@@ -11,7 +11,7 @@ import lombok.Data;
 public class ClienteGym {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nombre;
     private String apellido;
     private String genero;
