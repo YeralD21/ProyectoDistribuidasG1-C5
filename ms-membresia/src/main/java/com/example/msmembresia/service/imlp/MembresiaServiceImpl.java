@@ -26,26 +26,30 @@ public class MembresiaServiceImpl implements MembresiaService {
     }
 
     @Override
-    public  Membresia guardar(Membresia membresia) {
+    public Membresia guardar(Membresia membresia) {
+        // Si el ID del cliente está presente, busca la información del cliente y la asigna al DTO
+        if (membresia.getClientegymId() != null) {
+            ClientegymDto clientegymDto = clientegymFeign.buscarPorId(membresia.getClientegymId()).getBody();
+            if (clientegymDto != null) {
+                membresia.setClientegymDto(clientegymDto);
+            } else {
+                throw new RuntimeException("No se encontró el cliente con el ID: " + membresia.getClientegymId());
+            }
+        }
+
         return membresiaRepository.save(membresia);
     }
-
     @Override
-    public Membresia buscarPorId(Integer id)  {
+    public Membresia buscarPorId(Integer id) {
         Membresia membresia = membresiaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Membresia no encontrada"));
 
-        // Suponiendo que tienes un campo en Membresia que almacena el ID del cliente.
-        Integer clientegymId = membresia.getClientegymDto().getId();
-
-        // Si hay un ID del cliente, obtenemos toda la información del cliente.
-        if (clientegymId != null) {
-            ClientegymDto clientegymDto = clientegymFeign.buscarPorId(clientegymId).getBody();
+        if (membresia.getClientegymId() != null) {
+            ClientegymDto clientegymDto = clientegymFeign.buscarPorId(membresia.getClientegymId()).getBody();
             membresia.setClientegymDto(clientegymDto);
         }
 
         return membresia;
-
     }
     @Override
     public Membresia editar(Membresia membresia) {return membresiaRepository.save(membresia);
