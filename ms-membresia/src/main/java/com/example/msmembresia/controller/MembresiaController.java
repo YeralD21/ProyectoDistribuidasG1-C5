@@ -13,28 +13,36 @@ import java.util.List;
 
 public class MembresiaController {
     @Autowired
-    private MembresiaService  membresiaService;
+    private MembresiaService membresiaService;
 
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<Membresia>> listar() {
-        return ResponseEntity.ok().body(membresiaService.listar());
+        return ResponseEntity.ok(membresiaService.listar());
     }
-    @PostMapping()
-    public ResponseEntity<Membresia> guardar(@RequestBody Membresia membresia){
+
+    @PostMapping
+    public ResponseEntity<Membresia> guardar(@RequestBody Membresia membresia) {
+
         return ResponseEntity.ok(membresiaService.guardar(membresia));
+
     }
-    @PutMapping()
-    public ResponseEntity<Membresia> buscarPorId(@RequestBody Membresia membresia){
-        return ResponseEntity.ok(membresiaService.buscarPorId(membresia));
-    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Membresia> editar(@PathVariable(required = true) Integer id){
-        return ResponseEntity.ok().body(membresiaService.editar(id).get());
+    public ResponseEntity<Membresia> buscarPorId(@PathVariable(required = true) Integer id) {
+        return ResponseEntity.ok(membresiaService.buscarPorId(id));
+
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Membresia> editar(@PathVariable(required = true) Integer id, @RequestBody Membresia membresia) {
+        return ResponseEntity.ok(membresiaService.editar(membresia));
+    }
+
     @DeleteMapping("/{id}")
-    public String deleteById(@PathVariable(required = true) Integer id){
+    public String eliminar(@PathVariable(required = true) Integer id) {
         membresiaService.eliminar(id);
         return "Eliminacion Correcta";
+
     }
 }

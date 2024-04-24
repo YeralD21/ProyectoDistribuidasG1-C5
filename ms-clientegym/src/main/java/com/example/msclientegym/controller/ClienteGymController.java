@@ -15,25 +15,33 @@ public class ClienteGymController {
     @Autowired
     private ClienteGymService clienteGymService; // Utiliza ClienteService en lugar de CategoriaService
 
-    @GetMapping()
-    public ResponseEntity<List<ClienteGym>> listar() {
-        return ResponseEntity.ok().body(clienteGymService.listar());
+    @GetMapping
+    public ResponseEntity<List<ClienteGym>>listar(){
+        return ResponseEntity.ok(clienteGymService.listar());
     }
-    @PostMapping()
+
+    @PostMapping
     public ResponseEntity<ClienteGym> guardar(@RequestBody ClienteGym clienteGym){
-        return ResponseEntity.ok(clienteGymService.guardar(clienteGym));
-    }
-    @PutMapping()
-    public ResponseEntity<ClienteGym> buscarPorId(@RequestBody ClienteGym clienteGym){
-        return ResponseEntity.ok(clienteGymService.buscarPorId(clienteGym));
+
+        return  ResponseEntity.ok(clienteGymService.guardar(clienteGym));
+
     }
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteGym> editar(@PathVariable(required = true) Integer id){
-        return ResponseEntity.ok().body(clienteGymService.editar(id).get());
+    public ResponseEntity<ClienteGym> buscarPorId(@PathVariable(required = true) Integer id){
+        return  ResponseEntity.ok(clienteGymService.buscarPorId(id));
+
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteGym> editar(@PathVariable(required = true)Integer id,@RequestBody ClienteGym clienteGym){
+        return ResponseEntity.ok(clienteGymService.editar(clienteGym));
+    }
+
     @DeleteMapping("/{id}")
-    public String deleteById(@PathVariable(required = true) Integer id){
+    public String eliminar(@PathVariable(required = true) Integer id){
         clienteGymService.eliminar(id);
         return "Eliminacion Correcta";
+
     }
+
 }
