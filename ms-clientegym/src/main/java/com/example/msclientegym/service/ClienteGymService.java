@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface ClienteGymService {
     public List<ClienteGym> listar();
     public ClienteGym guardar(ClienteGym clienteGym);
-    public ClienteGym buscarPorId(ClienteGym clienteGym);
-    public Optional<ClienteGym> editar(Integer id);
+    public ClienteGym buscarPorId(Integer id);
+    public ClienteGym editar(ClienteGym clienteGym);
     public void eliminar(Integer id);
 }

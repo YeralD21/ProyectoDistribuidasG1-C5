@@ -21,12 +21,12 @@ public class MembresiaServiceImpl implements MembresiaService {
     }
 
     @Override
-    public Membresia guardar(Membresia membresia) {
+    public  Membresia guardar(Membresia membresia) {
         return membresiaRepository.save(membresia);
     }
 
     @Override
-    public Membresia buscarPorId(Integer id)  {return membresiaRepository.findById(id).get();}
+    public Membresia buscarPorId(Integer id) {return membresiaRepository.findById(id).get();}
 
     @Override
     public Membresia editar(Membresia membresia) {return membresiaRepository.save(membresia);

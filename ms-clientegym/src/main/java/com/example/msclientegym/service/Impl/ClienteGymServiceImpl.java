@@ -31,7 +31,7 @@ public class ClienteGymServiceImpl implements ClienteGymService {
 
     @Override
     public ClienteGym editar(ClienteGym clienteGym) {
-        return clienteGymRepository.findById(clienteGym);
+        return clienteGymRepository.save(clienteGym);
     }
 
     @Override

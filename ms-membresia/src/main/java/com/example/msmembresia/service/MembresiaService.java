@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface MembresiaService {
     public List<Membresia> listar();
     public Membresia guardar(Membresia membresia);
-    public Membresia buscarPorId(Membresia membresia);
-    public Optional<Membresia> editar(Integer id);
+    public Membresia buscarPorId(Integer id);
+    public Membresia editar(Membresia membresia);
     public void eliminar(Integer id);
 }
