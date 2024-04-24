@@ -20,10 +20,11 @@ public class Membresia {
     private String costo;
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "clientegym_id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "venta_id")
+    private List<MembresiaDetalle>detalles;
 
     @Transient
-    private ClientegymDto clientegym;
+    ClientegymDto clientegymDto;
 
 }
