@@ -25,13 +25,13 @@ public class ClienteGymServiceImpl implements ClienteGymService {
     }
 
     @Override
-    public ClienteGym buscarPorId(ClienteGym clienteGym) {
-        return clienteGymRepository.save(clienteGym);
+    public ClienteGym buscarPorId(Integer id) {
+        return clienteGymRepository.findById(id).get();
     }
 
     @Override
-    public Optional<ClienteGym> editar(Integer id) {
-        return clienteGymRepository.findById(id);
+    public ClienteGym editar(ClienteGym clienteGym) {
+        return clienteGymRepository.findById(clienteGym);
     }
 
     @Override
