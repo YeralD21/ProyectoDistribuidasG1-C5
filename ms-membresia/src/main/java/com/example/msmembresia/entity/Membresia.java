@@ -18,7 +18,7 @@ public class Membresia {
     private String fechafin;
     private String tipomembresia;
     private String costo;
-
+    private Integer clientegymId;
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id")

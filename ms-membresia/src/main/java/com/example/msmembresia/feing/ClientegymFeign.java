@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "ms-clientegym-service", path = "/clientegym")
 public interface ClientegymFeign {
     @GetMapping("/{id}")
-    public ResponseEntity<Membresia> buscarPorId(@PathVariable(required = true) Integer id);
+    public ResponseEntity<ClientegymDto> buscarPorId(@PathVariable(required = true) Integer id);
 }
